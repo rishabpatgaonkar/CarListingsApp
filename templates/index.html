@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function myFunction() {
+          document.getElementById("demo").innerHTML = "Paragraph changed.";
+        }
+
+        function dynamicdropdown(listindex)
+        {
+            document.getElementById("model").length = 0;
+            switch (listindex)
+            {
+            case "Acura" :
+                document.getElementById("model").options[0]=new Option("Select Model","");
+                document.getElementById("model").options[1]=new Option("NSX","NSX");
+                document.getElementById("model").options[2]=new Option("TSX","TSX");
+                break;
+            case "Audi" :
+                document.getElementById("model").options[0]=new Option("Select Model","");
+                document.getElementById("model").options[1]=new Option("A8","A8");
+                break;
+            case "Chevy" :
+                document.getElementById("model").options[0]=new Option("Select Model","");
+                document.getElementById("model").options[1]=new Option("Malibu","Malibu");
+                break;
+            case "Ford" :
+                document.getElementById("model").options[0]=new Option("Select Model","");
+                document.getElementById("model").options[1]=new Option("F-150","F-150");
+                document.getElementById("model").options[2]=new Option("F-350","F-350");
+                document.getElementById("model").options[3]=new Option("Mustang","Mustang");
+                break;
+            case "Honda" :
+                document.getElementById("model").options[0]=new Option("Select Model","");
+                document.getElementById("model").options[1]=new Option("Accord","Accord");
+                document.getElementById("model").options[2]=new Option("Civic","Civic");
+                document.getElementById("model").options[3]=new Option("CRV","CRV");
+                break;
+            case "Kia" :
+                document.getElementById("model").options[0]=new Option("Select Model","");
+                document.getElementById("model").options[1]=new Option("Sorrento","Sorrento");
+                break;
+            case "Lexus" :
+                document.getElementById("model").options[0]=new Option("Select Model","");
+                document.getElementById("model").options[1]=new Option("LX","LX");
+                document.getElementById("model").options[2]=new Option("RX","RX");
+                break;
+            case "Nissan" :
+                document.getElementById("model").options[0]=new Option("Select Model","");
+                document.getElementById("model").options[1]=new Option("Leaf","Leaf");
+                document.getElementById("model").options[2]=new Option("Maxima","Maxima");
+                document.getElementById("model").options[3]=new Option("Pathfinder","Pathfinder");
+                break;
+            case "Porsche" :
+                document.getElementById("model").options[0]=new Option("Select Model","");
+                document.getElementById("model").options[1]=new Option("911","911");
+                document.getElementById("model").options[2]=new Option("Taycan","Taycan");
+                break;
+            case "Tesla" :
+                document.getElementById("model").options[0]=new Option("Select Model","");
+                document.getElementById("model").options[1]=new Option("Model 3","Model 3");
+                document.getElementById("model").options[2]=new Option("Model S","Model S");
+                document.getElementById("model").options[3]=new Option("Model X","Model X");
+                document.getElementById("model").options[4]=new Option("Model Y","Model Y");
+                break;
+            case "Toyota" :
+                document.getElementById("model").options[0]=new Option("Select Model","");
+                document.getElementById("model").options[1]=new Option("4Runner","4Runner");
+                document.getElementById("model").options[2]=new Option("Camry","Camry");
+                break;
+            case "Volkswagen" :
+                document.getElementById("model").options[0]=new Option("Select Model","");
+                document.getElementById("model").options[1]=new Option("Jetta","Jetta");
+            }
+            return true;
+        }
+
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Find your car!</title>
+</head>
+<body>
+    <div class="container">
+        <img src="../static/logo2.png" alt="Logo" class="logo">
+        {% if message %}
+            <p class="message">{{ message | safe }}</p>
+        {% endif %}
+        <form action="/submit" method="POST">
+            <!--div class="form=group">
+                <h3>Customer Name</h3>
+                <input
+                    type="text"
+                    name="customer"
+                    placeholder="Name of vehicle owner"                
+                />
+            </div--> 
+            <h1></h1>
+            <div class="form-group">
+                <h3>Make</h3>
+                <select name="make" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+                    <option value="">Select Make</option>
+                    <option value="Acura">Acura</option>
+                    <option value="Audi">Audi</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Buick">Buick</option>
+                    <option value="Cadillac">Cadillac</option>
+                    <option value="Chevy">Chevy</option>
+                    <option value="Ford">Ford</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Kia">Kia</option>
+                    <option value="Lexus">Lexus</option>
+                    <option value="Nissan">Nissan</option>
+                    <option value="Porsche">Porsche</option>
+                    <option value="Tesla">Tesla</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Volkswagen">Volkswagen</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <h3>Model</h3>
+                <script type="text/javascript" language="JavaScript">
+                    document.write('<select name="model" id="model"><option value="">Select Model</option></select>')
+                </script>
+                <noscript>
+                <select name="model" id="model">
+                    <option value="">Select Model</option>
+                    <option value="CL">CL</option>
+                    <option value="100">100</option>
+                    <option value="335">335</option>
+                    <option value="California">California</option>
+                    <option value="ATS">ATS</option>
+                    <option value="911">911</option>
+                    <option value="Model 3">Model 3</option>
+                    <option value="Taycan">Taycan</option>
+                    <option value="NSX">NSX</option>
+                    <option value="TSX">TSX</option>
+                </select>
+                </noscript>
+            </div>
+            <div class="form-group">
+                <h3>Year</h3>
+                <select name="year">
+                    <option value="">Select Year</option>
+                    <option value="1966">1966</option>
+                    <option value="2000">2000</option>
+                    <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                </select>
+            </div>   
+            <div class="form-group">
+                <h3>Color</h3>
+                <select name="color">
+                    <option value="">Select Color</option>
+                    <option value="RED">RED</option>
+                    <option value="WHITE">WHITE</option>
+                    <option value="BLACK">BLACK</option>
+                    <option value="GREY">GREY</option>
+                    <option value="SILVER">SILVER</option>
+                    <option value="BLUE">BLUE</option>
+                    <option value="GREEN">GREEN</option>
+                    <option value="BEIGE">BEIGE</option>
+                    <option value="GOLD">GOLD</option>
+                    <option value="YELLOW">YELLOW</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <h3>Price</h3>
+                <select name="price">
+                    <option value="">Select Price</option>
+                    <option value="less than $10000">less than $10000</option>
+                    <option value="$10001 - $20000">$10001 - $20000</option>
+                    <option value="$20001 - $30000">$20001 - $30000</option>
+                    <option value="$30001 - $40000">$30001 - $40000</option>
+                    <option value="$40000+">$40000+</option>
+                </select>
+            </div>
+            <input type="submit" value="Search" class="btn" />
+        </form>
+    </div>
+</body>
+</html>
